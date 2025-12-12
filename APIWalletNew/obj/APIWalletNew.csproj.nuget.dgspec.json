@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\RiderProjects\\APIWalletNew\\APIWalletNew\\APIWalletNew.csproj": {}
+    "D:\\RiderProjects\\WalletAPI\\APIWalletNew\\APIWalletNew.csproj": {}
   },
   "projects": {
-    "D:\\RiderProjects\\APIWalletNew\\APIWalletNew\\APIWalletNew.csproj": {
+    "D:\\RiderProjects\\WalletAPI\\APIWalletNew\\APIWalletNew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\RiderProjects\\APIWalletNew\\APIWalletNew\\APIWalletNew.csproj",
+        "projectUniqueName": "D:\\RiderProjects\\WalletAPI\\APIWalletNew\\APIWalletNew.csproj",
         "projectName": "APIWalletNew",
-        "projectPath": "D:\\RiderProjects\\APIWalletNew\\APIWalletNew\\APIWalletNew.csproj",
+        "projectPath": "D:\\RiderProjects\\WalletAPI\\APIWalletNew\\APIWalletNew.csproj",
         "packagesPath": "C:\\Users\\manza\\.nuget\\packages\\",
-        "outputPath": "D:\\RiderProjects\\APIWalletNew\\APIWalletNew\\obj\\",
+        "outputPath": "D:\\RiderProjects\\WalletAPI\\APIWalletNew\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\manza\\AppData\\Roaming\\NuGet\\NuGet.Config"
