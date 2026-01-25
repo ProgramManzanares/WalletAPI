@@ -1,0 +1,20 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Rider / IntelliJ
+.idea/
+*.DotSettings.user
+
+# Visual Studio
+.vs/
+
+# Logs
+*.log
+
+# Misc
+.DS_Store
