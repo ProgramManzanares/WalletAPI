@@ -10,18 +10,19 @@
         <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="8.0.8"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Npgsql.DependencyInjection" Version="9.0.4" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+        <PackageReference Include="Npgsql.Json.NET" Version="9.0.4" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Data\Respositories\" />
       <Folder Include="Models\DTOs\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 
 </Project>

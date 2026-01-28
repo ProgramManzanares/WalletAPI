@@ -10,7 +10,7 @@ public static class DependencyInjection
     public static IServiceCollection AddWalletNew(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ApplicationBdContext>(options => 
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
         
         return services;
     }
