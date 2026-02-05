@@ -1,20 +1,32 @@
+using APIWalletNew;
+using APIWalletNew.Data;
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+Console.WriteLine(
+    builder.Configuration.GetConnectionString("DefaultConnection")
+);
+
+Console.WriteLine(builder.Environment.EnvironmentName);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddWalletNew(builder.Configuration);
 
-builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
-    .AddNegotiate();
-
-builder.Services.AddAuthorization(options =>
- {
-     // By default, all incoming requests will be authorized according to the default policy.
-     options.FallbackPolicy = options.DefaultPolicy;
- });
+// builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
+//     .AddNegotiate();
+//
+// builder.Services.AddAuthorization(options =>
+//  {
+//      // By default, all incoming requests will be authorized according to the default policy.
+//      options.FallbackPolicy = options.DefaultPolicy;
+//  });
 
 var app = builder.Build();
 
@@ -27,30 +39,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+if (app.Environment.IsDevelopment())
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
+    app.MapGet("/viewConnectionStatus", async ([FromServices] ApplicationBdContext context) =>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi()
-    .AllowAnonymous();
-    
-app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        try
+        {
+            var connection = await context.Database.CanConnectAsync();
+            return connection
+                ? Results.Ok("Database Connection Successfully")
+                : Results.Problem("Cannot connect with database");
+        }
+        catch (Exception e)
+        {
+            return Results.Problem(title: "Error", detail: e.Message);
+        }
+    });
 }
+
+app.Run();

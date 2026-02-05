@@ -13,15 +13,15 @@ public class WalletRepository : IWalletRepository
         _context = context;
     }
 
-    public async Task<User> GetUserByIdAsync(string idUser)
-    {
-        return await _context.Users
-            .FirstAsync(w => w.Id == idUser);
-    }
-
-    public async Task AddAsync(User user)
-    {
-        _context.Users.Add(user);
+     public async Task<User> GetUserByIdAsync(string idUser)
+     {
+         return await _context.Users
+             .FirstAsync(w => w.Id == idUser);
+     }
+    
+     public async Task AddAsync(User user)
+     {
+         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-    }
+     }
 }

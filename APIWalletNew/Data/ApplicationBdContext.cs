@@ -3,12 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIWalletNew.Data;
 
-public class ApplicationBdContext : DbContext
+public class ApplicationBdContext(DbContextOptions<ApplicationBdContext> options) : DbContext(options)
 {
-    public ApplicationBdContext(DbContextOptions<ApplicationBdContext> options) : base(options)
-    {
-    }
-
     public DbSet<User> Users { get; set; }
     public new async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         => await base.SaveChangesAsync(cancellationToken);
