@@ -2,6 +2,11 @@ namespace APIWalletNew.Models;
 
 public class User
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
+    public int Id { get; set; }
+    public required string  Name { get; set; }
+    public required string LastName { get; set; }
+    public required string Password { get; set; }
+    public required string Email { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

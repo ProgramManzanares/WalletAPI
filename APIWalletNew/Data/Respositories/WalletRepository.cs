@@ -13,7 +13,7 @@ public class WalletRepository : IWalletRepository
         _context = context;
     }
 
-     public async Task<User> GetUserByIdAsync(string idUser)
+     public async Task<User> GetUserByIdAsync(int idUser)
      {
          return await _context.Users
              .FirstAsync(w => w.Id == idUser);

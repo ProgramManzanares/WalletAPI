@@ -4,6 +4,6 @@ namespace APIWalletNew.Services.Interfaces;
 
 public interface IWalletRepository
 {
-    Task<User> GetUserByIdAsync(string idUser);
+    Task<User> GetUserByIdAsync(int idUser);
     Task AddAsync(User user);
 }
