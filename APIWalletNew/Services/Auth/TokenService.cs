@@ -2,11 +2,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using APIWalletNew.Models;
+using APIWalletNew.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
 namespace APIWalletNew.Services.Auth;
 
-public class TokenService
+public class TokenService : ITokenService
 {
     private readonly IConfiguration _configuration;
     private readonly string? _secretKey;

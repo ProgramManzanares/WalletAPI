@@ -22,6 +22,7 @@ Console.WriteLine(builder.Environment.EnvironmentName);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddWalletNew(builder.Configuration);
+builder.Services.AddControllers();
 
 // builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
 //     .AddNegotiate();
@@ -49,9 +50,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
-builder.Services.AddScoped<TokenService>();
 
 var app = builder.Build();
+
+app.MapControllers(); // enable traditional controllers without use a minimal APIs
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
