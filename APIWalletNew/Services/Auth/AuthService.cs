@@ -1,3 +1,4 @@
+using APIWalletNew.Data.Interfaces;
 using APIWalletNew.Models;
 using APIWalletNew.Models.DTOs;
 using APIWalletNew.Services.Interfaces;
@@ -27,6 +28,7 @@ public class AuthService : IAuthService
         var user = new User
         {
             Name = request.Name,
+            LastName = request.Lastname,
             Email = request.Email,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
             CreatedAt = DateTime.UtcNow

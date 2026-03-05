@@ -1,4 +1,5 @@
 using APIWalletNew.Data;
+using APIWalletNew.Data.Interfaces;
 using APIWalletNew.Data.Respositories;
 using APIWalletNew.Services.Auth;
 using APIWalletNew.Services.Interfaces;

@@ -1,3 +1,4 @@
+using APIWalletNew.Data.Interfaces;
 using APIWalletNew.Models;
 using APIWalletNew.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;

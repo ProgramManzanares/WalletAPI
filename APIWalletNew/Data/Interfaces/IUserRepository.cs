@@ -1,6 +1,6 @@
 using APIWalletNew.Models;
 
-namespace APIWalletNew.Services.Interfaces;
+namespace APIWalletNew.Data.Interfaces;
 
 public interface IUserRepository
 {
